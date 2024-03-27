@@ -46,12 +46,12 @@ if __name__ == "__main__":
     ds = pydicom.dcmread(args.dcm)
 
 
-    OUT_DIR = DIR + '/' + args.h5py  + '/' + args.h5py + '_DCM'
-    #OUT_DIR = OUT_DIR.split('.h5')[0]
+    OUT_DIR = DIR + '/' + args.h5py  + '/' + args.h5py + '_DCM_processed'
+    OUT_DIR = OUT_DIR.split('.h5')[0]
     pathlib.Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
-    print('> reconstructed files are stored in: ', OUT_DIR)
+    #print('> reconstructed files are stored in: ', OUT_DIR)
 
-    f = h5py.File(DIR + '/' + args.h5py + '/' + args.h5py + '.h5', 'r')
+    f = h5py.File(DIR + '/' + args.h5py + '/' + args.h5py + '_processed.h5', 'r')
     R = f['temptv'][:]
     f.close()
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
 
     slice_thickness = ds[0x00180050].value
-    print('> slice_thickness: ', slice_thickness)
+    print('> slice_thcikness: ', slice_thickness)
 
     # Set creation date/time
     dt = datetime.now()

@@ -66,12 +66,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='run dce reconstruction.')
 
     parser.add_argument('--dir', type=str,
-                        default='fastMRI_breast_001_1',
+                        default=DIR,
                         help='the directory where raw .h5 data is stored')
 
     parser.add_argument('--data',
-                        default='fastMRI_breast_001_1.h5',
+                        default='Breast_seg1_CCCTrio#F374720.h5',
                         help='radial k-space data')
+
+    parser.add_argument('--codedName',
+                        default='fastMRI_breast_001_1.h5',
+                        help='unique coded file name')
 
     parser.add_argument('--spokes_per_frame', type=int, default=12,
                         help='number of spokes per frame')
@@ -93,15 +97,16 @@ if __name__ == "__main__":
     device = sp.Device(0 if torch.cuda.is_available() else -1)
     print('> device ', device)
 
-    OUT_DIR = args.dir
-
+    OUT_DIR = DIR + '/' + args.codedName
+    OUT_DIR = OUT_DIR.split('.h5')[0]
+    pathlib.Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
+    #print('> reconstructed files are stored in: ', OUT_DIR)
 
     # %% read in k-space data
     IN_DIR = args.dir + '/' + args.data
-    #print('> read in data ', IN_DIR)
+    print('> read in data ', IN_DIR)
     f = h5py.File(IN_DIR, 'r')
     ksp_f = f['kspace'][:].T
-    ksp_f = np.transpose(ksp_f, (4, 3, 2, 1, 0))
     print('> kspace shape ', ksp_f.shape)
     f.close()
 
@@ -181,10 +186,21 @@ if __name__ == "__main__":
     acq_slices = cp.asnumpy(acq_slices)
     acq_slices = np.squeeze(abs(acq_slices))
 
-        # save recon files
-    f = h5py.File(OUT_DIR + '/' + args.dir + '_processed.h5', 'w')
+    #acq_slices = np.array(acq_slices)
+    #print('> acq_slices shape: ', acq_slices.shape)
+
+    # save recon files
+    #f = h5py.File(OUT_DIR + '/reco_spokes' + str(args.spokes_per_frame).zfill(2) + '.h5', 'w')
+    f = h5py.File(OUT_DIR + '/' + args.codedName + '.h5', 'w')
+
+    dset = f.create_dataset('kspace', data=ksp_f)
+    dset.attrs['partitions'] = '83'
+    dset.attrs['centerPartition'] = '32'
+    dset.attrs['imagesPerSlab'] = '192'
+
     dset = f.create_dataset('temptv', data=acq_slices)
     dset.attrs['spokes_per_frame'] = args.spokes_per_frame
-    dset.attrs['number_of_frames'] = N_time
-    dset.attrs['number_of_slices'] = args.slice_inc
+    dset.attrs['images_per_slab'] = args.images_per_slab
+    dset.attrs['frameNumber'] = N_time
+
     f.close()
