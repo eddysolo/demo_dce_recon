@@ -60,6 +60,11 @@ fi
     echo "> SLICE_IDX: ${SLICE_IDX}"
     echo "> SLICE_INC: ${SLICE_INC}"
 
+    # Check if SLICE_IDX is equal to zero
+    if [ "$SLICE_IDX" -ne 0 ]; then  
+        ((SLICE_IDX--))
+        echo "SLICE_IDX is now $SLICE_IDX"
+    fi 
     # reconstruct slice by slice
     python dce_recon.py --dir ${DIR} --data ${DATA} --spokes_per_frame ${SPOKES} --slice_idx ${SLICE_IDX} --slice_inc ${SLICE_INC}
 
