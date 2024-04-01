@@ -1,36 +1,37 @@
-# Dynamic Contrast Enhanced (DCE) MRI Reconstruction
+# fastMRI Breast: A publicly available radial k-space dataset of breast dynamic contrast-enhanced MRI
 
 ## Demonstration of DCE MRI reconstruction using temporal TV regularization
+* Goal: 
+    To make a publicly available radial k-space dataset of breast DCE-MRI which will promote development of fast and quantitative breast imaging methods.
 
-* Interactive code demo:
-
-    * DCE MRI: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZhengguoTan/demo_dce_recon/blob/main/demo_dce_sim_recon_temptv.ipynb)
-
-    * Motion Phantom: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZhengguoTan/demo_dce_recon/blob/main/demo_motion_phantom.ipynb)
-
+* Code descripition: 
+   **'loop_single_data.sh'** script executes two python scripts, `dce_recon.py` and `dcm_recon.py`. The scripts read k-space data from .h5 file stored within a patient folder (e.g., 'fastMRI_breast_003_2') and generate a new reconstructed image series based on user preferences such as spokes per frame, slice index, and the number of slices. The resulting image series is stored in a new .h5 file ('_processed.h5') and in a DICOM folder ('_DCM'), both saved under the patient folder.
 
 * How to run on your local computer?
 
-    All the jupyter notebooks provide installation instructions and are designed such that you can simply "click and go". If you want to run the script `dce_recon.py` on your local computer, you need to firstly install the required python environments, which I suggest to use `conda`.
+    To run the bash script **'loop_single_data.sh'** on your local computer, you need to firstly install the required python environments, which I suggest to use `conda`.
 
     Here are the steps:
 
     1. create a new `conda` environment in ther terminal:
 
     ```bash
-    conda create -n dce python=3.9.16
+    conda create -n dce python=3.10
     conda activate dce
     which python  # to validate the python is under the environment
     ```
 
     ```bash
-    python -m pip install h5py
-    python -m pip install pywavelets
+    conda install -c anaconda pip
+    python -m pip install torch torchvision torchaudio
+    python -m pip install tqdm
+    python -m pip install pydicom
     python -m pip install numba
     python -m pip install scipy
-    python -m pip install tqdm
-    python -m pip install torch
-    python -m pip install cupy
+    python -m pip install pywavelets
+    python -m pip install h5py
+    python -m pip install matplotlib
+
     conda install -c conda-forge cupy cudnn cutensor nccl  # if you have GPU
     conda install -c conda-forge numpy=1.24
     ```
@@ -40,13 +41,14 @@
     ```bash
     git clone https://github.com/ZhengguoTan/sigpy.git
     cd sigpy
-    python -m pip install -e .
+    pip install setuptools==58.2.0  # might be needed, try first without
+    python -m pip install -e . 
     ```
 
-    3. Now you should be able to run the script:
+    3. Now you should be able to run the script with four inputs: data, spokes per frame, slice index, number of slices
 
     ```bash
-    python dce_recon.py --data 'GeneBreast_CCCTrio#F636203.h5' --spokes_per_frame 12 --slice_idx 96 --slice_inc 1
+    bash loop_single_data.sh fastMRI_breast_002_1 36 100 10 
     ```
 
 ## References:

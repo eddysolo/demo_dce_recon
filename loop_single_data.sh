@@ -52,8 +52,6 @@ else
     fi
 fi
 
-#for F in ${FILES}; do
-
     echo "> DIR: ${DIR}"
     echo "> DATA: ${DATA}"
     echo "> SPOKES: ${SPOKES}"
@@ -74,4 +72,4 @@ fi
 
     python dcm_recon.py --h5py ${FN} --spokes_per_frame ${SPOKES}
 
-#done
+

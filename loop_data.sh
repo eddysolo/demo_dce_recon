@@ -11,8 +11,6 @@ fi
 
 FILES=$(find "${DIR}" -maxdepth 1 -type f -name "*CCCTrio*.h5" -exec basename {} \;)
 
-#esolo
-
 #printf "old list:\n"
 #printf "%s\n" "${FILES[@]}"
 
@@ -69,7 +67,6 @@ done
 #over write the original case list
 FILES=("${sorted_cases[@]}")
 
-#esolo
 
 if [ -z "${FILES}" ]; then
     echo "no raw .h5 file found. exit."
@@ -91,7 +88,6 @@ else
 fi
 
 #echo "> reconstruct files: ${FILES[@]}"
-#<<COMMENT
 
 counter=0
 for F in ${FILES[@]};
@@ -111,4 +107,3 @@ do
     ((counter++))
 
 done
-#COMMENT
