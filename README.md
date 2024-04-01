@@ -2,7 +2,7 @@
 
 ## Demonstration of DCE MRI reconstruction using temporal TV regularization
 * Goal: 
-    To make a publicly available radial k-space dataset of breast DCE-MRI which will promote development of fast and quantitative breast imaging methods.
+        To make a publicly available radial k-space dataset of breast DCE-MRI which will promote development of fast and quantitative breast image reconstruction and machine learning methods.
 
 * Code descripition: 
 
