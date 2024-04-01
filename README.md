@@ -5,7 +5,8 @@
     To make a publicly available radial k-space dataset of breast DCE-MRI which will promote development of fast and quantitative breast imaging methods.
 
 * Code descripition: 
-   **'loop_single_data.sh'** script executes two python scripts, `dce_recon.py` and `dcm_recon.py`. The scripts read k-space data from .h5 file stored within a patient folder (e.g., 'fastMRI_breast_003_2') and generate a new reconstructed image series based on user preferences such as spokes per frame, slice index, and the number of slices. The resulting image series is stored in a new .h5 file ('_processed.h5') and in a DICOM folder ('_DCM'), both saved under the patient folder.
+
+   **'loop_single_data.sh'** script executes two python scripts, `dce_recon.py` and `dcm_recon.py`. The scripts read k-space data from .h5 file stored within a patient folder (e.g., 'fastMRI_breast_003_2') and generate a new reconstructed image series based on user preferences (such as spokes per frame, slice index, and the number of slices). The resulting image series is stored in a new .h5 file ('_processed.h5') and in a DICOM folder ('_DCM'), both saved under the patient folder.
 
 * How to run on your local computer?
 
