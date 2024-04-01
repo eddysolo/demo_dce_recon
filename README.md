@@ -14,7 +14,7 @@
 
     Here are the steps:
 
-    1. create a new `conda` environment in ther terminal:
+    1. create a new `conda` environment in the terminal:
 
     ```bash
     conda create -n dce python=3.10
