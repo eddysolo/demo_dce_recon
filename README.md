@@ -49,7 +49,7 @@
     3. Now you should be able to run the script with four inputs: data, spokes per frame, slice index, number of slices
 
     ```bash
-    bash loop_single_data.sh fastMRI_breast_002_1 36 100 10 
+    bash loop_single_data.sh fastMRI_breast_002_1 72 100 10 
     ```
 
 ## References:
