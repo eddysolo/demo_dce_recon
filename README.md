@@ -51,6 +51,11 @@
     ```bash
     bash loop_single_data.sh fastMRI_breast_002_1 72 100 10 
     ```
+## fastMRI Breast dataset:
+The data are available for free through: https://fastmri.med.nyu.edu/. Our dataset includes case-level labels arranaged inside an excel file (see 'breast_fastMRI') indicating patient age, menopause status, lesion status (negative, benign, and malignant), and lesion type for each case. 
+
+## Cite:
+If you use the fastMRI DCE Breast data or code in your research, please cite the following arXiv paper:
 
 ## References:
 
