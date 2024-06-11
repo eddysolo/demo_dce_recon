@@ -55,7 +55,7 @@
 The data are available for free through: https://fastmri.med.nyu.edu/. Our dataset includes case-level labels arranaged inside an excel file (see 'breast_fastMRI') indicating patient age, menopause status, lesion status (negative, benign, and malignant), and lesion type for each case. 
 
 ## Citation: 
-If you use the fastMRI DCE Breast data or code in your research, please cite the following arXiv paper:
+If you use the fastMRI DCE Breast data or code in your research, please cite the following arXiv paper: https://arxiv.org/abs/2406.05270
 
 ## References:
 
