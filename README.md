@@ -52,7 +52,11 @@
     bash loop_single_data.sh fastMRI_breast_002_1 72 100 10 
     ```
 ## fastMRI Breast dataset:
-The data are available for free through: https://fastmri.med.nyu.edu/. Our dataset includes case-level labels arranaged inside an excel file (see 'breast_fastMRI') indicating patient age, menopause status, lesion status (negative, benign, and malignant), and lesion type for each case. 
+The data are available for free through: https://fastmri.med.nyu.edu/. After acceptance of the dataset sharing agreement, researchers receive an email containing links to download the data. In order to use an .h5 file with this code, save it inside a folder named with its patient code name (e.g., 'fastMRI_breast_003_2'), as instructed in 'Code description' above. Note that the provided DICOM files are in 4D (x,y,z,time) with 4 time frames. For easier viewing, we recommend using https://firevoxel.org/
+
+Our dataset also includes case-level labels arranged in an excel file (also available here under 'breast_fastMRI') indicating patient age, menopause status, lesion status (negative, benign, and malignant), and lesion type for each case. 
+
+
 
 ## Citation: 
 If you use the fastMRI DCE Breast data or code in your research, please cite the following arXiv paper: https://arxiv.org/abs/2406.05270
