@@ -54,7 +54,7 @@
 ## fastMRI Breast dataset:
 The data are available for free through: https://fastmri.med.nyu.edu/. After acceptance of the dataset sharing agreement, researchers receive an email containing links to download the data. In order to use an .h5 file with this code, save it inside a folder named with its patient code name (e.g., 'fastMRI_breast_003_2'), as instructed in 'Code description' above. Note that the provided DICOM files are in 4D (x,y,z,time) with 4 time frames. For easier viewing, we recommend using https://firevoxel.org/
 
-Our dataset also includes case-level labels arranged in an excel file (also available here under 'breast_fastMRI') indicating patient age, menopause status, lesion status (negative, benign, and malignant), and lesion type for each case. 
+Our dataset also includes case-level labels arranged in an excel file (also available here under 'breast_fastMRI_final') indicating patient age, menopause status, lesion status (negative, benign, and malignant), and lesion type for each case. 
 
 
 
