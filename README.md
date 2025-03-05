@@ -59,7 +59,7 @@ Our dataset also includes case-level labels arranged in an excel file (also avai
 
 
 ## Citation: 
-If you use the fastMRI DCE Breast data or code in your research, please cite the following arXiv paper: https://arxiv.org/abs/2406.05270
+If you use the fastMRI DCE Breast data or code in your research, please cite our paper: https://pubs.rsna.org/doi/10.1148/ryai.240345
 
 ## References:
 
